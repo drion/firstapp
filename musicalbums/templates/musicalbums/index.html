@@ -1,0 +1,22 @@
+{% extends 'musicalbums/base.html' %}
+
+{% block title %}Albums{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        {% for album in albums %}
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="{{ album.logo }}" alt="{{ album.name }}">
+                <div class="caption">
+                    <h3>{{ album.name }}</h3>
+                    <p>{{ album.author }}</p>
+                    <p><a href="{% url 'musicalbums:details' album.id %}" class="btn btn-primary" role="button">Details</a></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
